@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Jawad - Frontend Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #e8f4f8;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #0f1419;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(15, 20, 25, 0.5);
+        }
+        /*  */
+        /* .profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid #008768ce;
+  margin: 0 auto 1rem;
+  
+  background: 
+    linear-gradient(45deg, #64ffda, #00bcd4), 
+    url('image.jpeg') center center / cover no-repeat;
+  background-blend-mode: overlay;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+} */
+
+
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #64ffda;
+            margin: 0 auto 1rem;
+            background: linear-gradient(45deg, #64ffda, #00bcd4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #0f1419;
+            
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #64ffda;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #ccd6f6;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            background: #1e3a8a;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: 2px solid transparent;
+        }
+
+        .social-links a:hover {
+            background: transparent;
+            color: #64ffda;
+            border-color: #64ffda;
+            transform: translateY(-2px);
+        }
+
+        .resume-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .resume-btn:hover {
+            background: transparent;
+            color: #ff6b6b;
+            border-color: #ff6b6b;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        nav {
+            background: #1e293b;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(30, 41, 59, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #ccd6f6;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        nav a:hover {
+            background: transparent;
+            color: #64ffda;
+            border-color: #64ffda;
+            transform: scale(1.05);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #64ffda;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #64ffda, #00bcd4);
+            display: block;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: #1e293b;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(15, 20, 25, 0.3);
+            border: 3px solid #334155;
+        }
+
+        .about-content {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ccd6f6;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(15, 20, 25, 0.3);
+            border: 3px solid #334155;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #64ffda;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #64ffda;
+        }
+
+        .skill-card h3 {
+            color: #e8f4f8;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card p {
+            color: #94a3b8;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(44, 85, 48, 0.15);
+            border: 3px solid #dcedc1;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #7db46c;
+        }
+
+        /* .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #7db46c, #a8e6cf);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        } */
+
+
+
+        .project-image {
+  height: 200px;
+  background: linear-gradient(45deg, #7db46c, #a8e6cf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c5530;
+        }
+
+        .project-description {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: #a8e6cf;
+            color: #2c5530;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            background: #7db46c;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .project-links a:hover {
+            background: #2c5530;
+            transform: scale(1.05);
+        }
+
+        /* Contact */
+        .contact {
+            background: #1e293b;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(15, 20, 25, 0.3);
+            border: 3px solid #334155;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e8f4f8;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #334155;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: #0f1419;
+            color: #e8f4f8;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #64ffda;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #64748b;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto;
+            border: 2px solid transparent;
+        }
+
+        .submit-btn:hover {
+            background: transparent;
+            color: #64ffda;
+            border-color: #64ffda;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f1419;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-img">MJ
+  <!-- <img src="image.jpeg" alt="Profile Picture" style="width: 100%; height: 100%; border-radius: 50%;"> -->
+</div>
+
+            <h1>Muhammad Jawad</h1>
+            <p class="subtitle">Frontend React.js Developer</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/m-jawad-ahmed/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/MuhammadJawad-dot" target="_blank">GitHub</a>
+                <button class="resume-btn" onclick="downloadResume()">Download Resume</button>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="about" class="fade-in">
+            <div class="about">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p>Hello! I'm Muhammad Jawad, a passionate frontend developer specializing in React.js. I'm currently seeking internship opportunities to grow my skills and contribute to innovative projects. I love creating beautiful, user-friendly interfaces and bringing ideas to life through code.</p>
+                    <br>
+                    <p>While I'm still early in my journey, I'm dedicated to learning and improving every day. I believe in writing clean, maintainable code and staying up-to-date with the latest web development trends and best practices.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="fade-in">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">⚛️</div>
+                    <h3>React.js</h3>
+                    <p>Building interactive user interfaces with modern React patterns and hooks</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>JavaScript</h3>
+                    <p>ES6+ features, DOM manipulation, and modern JavaScript development</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>CSS & HTML</h3>
+                    <p>Responsive design, Flexbox, Grid, and semantic HTML structure</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Development Tools</h3>
+                    <p>Git, VS Code, NPM, and browser developer tools</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="fade-in">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+
+                 <div class="project-card">
+                    <div class="project-image">
+  <img src="saas.jpeg" alt="Project Screenshot" />
+</div>
+
+                    <div class="project-content">
+                        <h3 class="project-title">Data Analytics Service</h3>
+                        <p class="project-description">Built a fully responsive landing page using React.js, Tailwind CSS, and Vite. Features include a modern hero section, analytics cards, newsletter form, and clean UI components with react-icons.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Tailwind</span>
+                            <span class="tech-tag">ReactIcons</span>
+                            <span class="tech-tag">Vite</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://data-analytics-five.vercel.app/" target="_blank">Live Demo</a>
+                            <a href="https://github.com/MuhammadJawad-dot/Data-Analytics" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        
+                        <img src="todo.jpeg" alt="Project Screenshot" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Todo List App</h3>
+                        <p class="project-description">A clean and responsive task manager built with HTML, CSS, and Vanilla JavaScript. Users can add, delete, mark tasks as complete, and filter them by status and category with smooth UI interaction.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">LocalStorage</span>
+                            
+                        </div>
+                        <div class="project-links">
+                            <a href="https://to-do-app-ruby-one.vercel.app/" target="_blank">Live Demo</a>
+                            <a href="https://github.com/MuhammadJawad-dot/To-do-App" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+               
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="movie.jpeg" alt="">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Movie App</h3>
+                        <p class="project-description">A responsive React app that fetches real-time movie data using the TMDB API. Users can search movies, view posters, and get quick info like ratings and release dates — with smart suggestions based on search history.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Appwrite</span>
+                            <span class="tech-tag">TMBD API</span>
+                            <span class="tech-tag">Tailwind</span>
+                        </div>
+                        <div class="project-links">
+                          
+                            <a href="https://github.com/MuhammadJawad-dot/movie-app" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-in">
+            <div class="contact">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="social-links">
+                <a href="tel:+923156210010">0309-5671192</a>
+
+
+               
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jawadintzar123@gmail.com" target="_blank">
+  jawadintzar123@gmail.com
+</a>
+
+
+                </div>
+                <!-- <form class="contact-form" action="mailto:jawadintzar123@gmail.com" meth
+                 od="get" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="body" placeholder="Tell me about your project or internship opportunity..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form> -->
+
+
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Jawad. Built with passion and React.js</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Form handling
+    
+
+
+        // Resume download functionality
+//         function downloadResume() {
+//             // Create a sample resume content
+//             const resumeContent = `
+// MUHAMMAD JAWAD
+// Frontend React.js Developer
+
+// Contact Information:
+// Email: your.email@gmail.com
+// LinkedIn: linkedin.com/in/muhammad-jawad
+// GitHub: github.com/muhammad-jawad
+
+// ABOUT:
+// Passionate frontend developer specializing in React.js, seeking internship opportunities 
+// to grow skills and contribute to innovative projects. Dedicated to learning and 
+// improving every day with a focus on clean, maintainable code.
+
+// SKILLS:
+// • React.js - Building interactive user interfaces with modern React patterns and hooks
+// • JavaScript - ES6+ features, DOM manipulation, and modern JavaScript development  
+// • CSS & HTML - Responsive design, Flexbox, Grid, and semantic HTML structure
+// • Development Tools - Git, VS Code, NPM, and browser developer tools
+
+// PROJECTS:
+// 1. Todo List App
+//    - Responsive todo application built with React hooks for state management
+//    - Features: adding, editing, deleting, and marking tasks as complete
+//    - Technologies: React, CSS3, LocalStorage
+
+// 2. Weather App  
+//    - Weather application that fetches real-time weather data using API calls
+//    - Clean UI with search functionality and weather forecasts
+//    - Technologies: React, API integration, CSS3
+
+// 3. Memory Game
+//    - Interactive memory card game built with React
+//    - Features: flip animations, score tracking, multiple difficulty levels
+//    - Technologies: React, CSS Animations, JavaScript
+
+// EDUCATION:
+// [Add your education details here]
+
+// CERTIFICATIONS:
+// [Add relevant certifications here]
+//             `.trim();
+
+//             // Create and download the file
+//             const blob = new Blob([resumeContent], { type: 'text/plain' });
+//             const url = window.URL.createObjectURL(blob);
+//             const a = document.createElement('a');
+//             a.href = url;
+//             a.download = 'Muhammad_Jawad_Resume.txt';
+//             document.body.appendChild(a);
+//             a.click();
+//             document.body.removeChild(a);
+//             window.URL.revokeObjectURL(url);
+            
+//             // Show a confirmation message
+//             alert('Resume downloaded! Please update it with your specific details.');
+//         }
+
+
+        function downloadResume() {
+    const link = document.createElement('a');
+    link.href = 'Resume.pdf'; // Path to your actual PDF file
+    link.download = 'Muhammad_Jawad_Resume.pdf'; // Desired file name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Optional alert
+    alert('Resume PDF downloaded!'); 
+        }            
+    </script>
+</body>
+</html>
